@@ -1,0 +1,9 @@
+.ant-mobile-header {
+  height: 50px;
+  background-color: #39A6FD;
+  @include flex($justify-content: space-between);
+  .center-title {
+    font-size: 14px;
+    color: #fff;
+  }
+}
