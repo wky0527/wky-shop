@@ -1,0 +1,129 @@
+.adm-swiper {
+  margin-top: px2rem(70);
+  .content {
+    height: px2rem(280);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    user-select: none;
+  }
+}
+.home-main {
+  margin-bottom: px2rem(200);
+  .home-nav {
+    margin-bottom: px2rem(20);
+    ul {
+      @include flex($justify-content: space-between);
+      padding: px2rem(20) px2rem(40);
+      box-sizing: border-box;
+      background-color: $bg;
+      li {
+        @include flex($direction: column);
+        img {
+          width: px2rem(50);
+          height: px2rem(50);
+        }
+      }
+    }
+  }
+  .home-content {
+    li {
+      background-color: $bg;
+      margin-bottom: px2rem(20);
+      .home-all-title {
+        padding: px2rem(20) 0;
+        padding-left: px2rem(30);
+        .home-titleImg {
+          width: px2rem(80);
+          height: px2rem(30);
+          display: inline-block;
+          margin-right: px2rem(14);
+        }
+      }
+      .home-list {
+        @include flex($wrap: wrap,$justify-content: center);
+        dl {
+          @include flex($justify-content: center);
+          margin-bottom: px2rem(20);
+          margin-right: px2rem(30);
+          dt {
+            margin-right: px2rem(20);
+            img {
+              width: px2rem(80);
+              height: px2rem(80);
+            }
+          }
+          dd {
+            .home-title {
+              @include singleLine($width: px2rem(220))
+            }
+            .home-introduce {
+              @include multipleLine($line: 3,$width: px2rem(220))
+            }
+          }
+        }
+      }
+    }
+  }
+  .home-recommend {
+    height: px2rem(70);
+    margin-bottom: px2rem(20);
+    img {
+      height: 100%;
+    }
+  }
+  .home-hot-sale {
+    background-color: $bg;
+    .hot-title {
+      padding-left: px2rem(30);
+      span {
+          color: #FF5A27;
+          font-size: $font-size-small;
+          line-height: px2rem(90);
+          border-left: px2rem(8) #FF5A27 solid;
+          padding-left: px2rem(5);
+      }
+    }
+    .hot-content {
+      @include flex($justify-content: space-between,$wrap:wrap);
+      padding: 0 px2rem(30);
+      box-sizing: border-box;
+      dl {
+        width: 30%;
+        dt {
+          width: px2rem(200);
+          height: px2rem(200);
+          display: inline-block;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        dd {
+          p {
+            @include multipleLine($line: 3,$width: px2rem(220));
+            margin: px2rem(16) 0;
+            color: #333;
+            &:last-child {
+              @include flex($justify-content: space-between);
+              span {
+                color: #F40;
+                &:last-child {
+                  color: #999999;
+                }
+              }
+            }
+          }
+
+        }
+
+      }
+    }
+    .hot-content::after {
+      content: '';
+      width: 30%
+    }
+  }
+}
