@@ -1,23 +1,24 @@
 import React from "react";
+import {NavBar,Toast} from "antd-mobile";
 import './index.scss';
 interface propsType {
-    title: String,
-    leftContent?: any,
-    rightContent?: any
+    backTitle?: any,//返回按钮文字
+    backArrow?: Boolean,//是否显示返回区域的箭头
+    leftTitle?: String,//左侧内容
+    rightTitle?: String//右侧内容
+    title?: String,//标题
 }
-const Header  = ({title,leftContent,rightContent}:propsType) => {
+const Header  = ({backTitle,backArrow,leftTitle,rightTitle,title}:propsType) => {
+    const back = () => {
+        Toast.show({
+            content: '点击了返回区域',
+            duration: 1000,
+        })
+    }
     return (
-        <div className='ant-mobile-header'>
-            <div className="left-operation">
-                {leftContent}
-            </div>
-            <div className="center-title">
+            <NavBar back={backTitle} backArrow={backArrow || false} left={leftTitle} right={rightTitle} onBack={back} >
                 {title}
-            </div>
-            <div className="right-operation">
-                {rightContent}
-            </div>
-        </div>
+            </NavBar>
     )
 }
 export default Header

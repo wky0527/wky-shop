@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
-import path from "path";
+import path = require('path');
 import reactRefresh from '@vitejs/plugin-react-refresh'
 
 // https://vitejs.dev/config/

@@ -11,7 +11,7 @@ const Home: FC = () => {
     }
     return (
         <>
-            <Header title='首页'/>
+            <Header title= '首页'/>
             <Swiper autoplay>
                 <Swiper.Item>
                     <div style={{background: '#ace0ff'}} className='content'>
