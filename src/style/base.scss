@@ -1,5 +1,5 @@
-@import "./common.scss";
-@import "./px2rem.scss";
+@import "common";
+@import "px2rem";
 body,dl,dd,ul,ol,h1,h2,h3,h4,h5,h6,pre,form,input,textarea,p,hr,thead,tbody,tfoot,th,td{margin:0;padding:0;}
 ul,ol{list-style:none;}
 a{text-decoration:none;}

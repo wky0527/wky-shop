@@ -1,26 +1,27 @@
-import React,{FC} from "react";
-import {SideBar} from 'antd-mobile';
+import React, {FC, useState} from "react";
+import {Tabs} from 'antd-mobile';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import './index.scss';
-import {cateList} from "./data";
-const Category: FC = () => {
+import {navList} from "./data";
+import List from './list';
+
+const Category: FC<any> = () => {
     return (
         <>
             <Header title='商品分类'/>
             <div className='category-main'>
-                <SideBar>
+                <Tabs>
                     {
-                        cateList.map((item,index)=>{
+                        navList.map((item,index)=>{
                            return (
-                               <SideBar.Item title={item.title} key={item.id}>
-                                   {item.id}
-                               </SideBar.Item>
-
+                               <Tabs.TabPane title={item.name} key={item.id}>
+                                   <List id={item.id}/>
+                               </Tabs.TabPane>
                            )
                         })
                     }
-                </SideBar>
+                </Tabs>
             </div>
             <Footer/>
         </>

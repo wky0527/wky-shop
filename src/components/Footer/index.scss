@@ -4,13 +4,13 @@
   left: 0;
   bottom: 0;
   background-color: #fff;
-  padding: px2rem(20);
+  padding: px2rem(10);
   box-sizing: border-box;
   @include flex($justify-content: space-between);
   .footer-link {
     @include flex($justify-content: space-between,$direction: column);
   }
   .footer-icon {
-    width: px2rem(70)
+    width: px2rem(55)
   }
 }

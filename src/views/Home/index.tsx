@@ -54,7 +54,7 @@ const Home: FC = () => {
                         {
                             activeList.map((item, index) => {
                                 return (
-                                    <li>
+                                    <li key={index}>
                                         <p className='home-all-title'><img src={item.titleImg}
                                                                            className='home-titleImg'/><span>{item.titleIntroduce}</span>
                                         </p>
@@ -62,7 +62,7 @@ const Home: FC = () => {
                                             {
                                                 item.list.map((item, index) => {
                                                     return (
-                                                        <dl>
+                                                        <dl key={index}>
                                                             <dt><img src={item.img} alt=""/></dt>
                                                             <dd>
                                                                 <p className='home-title'>{item.smallTitle}</p>
@@ -90,7 +90,7 @@ const Home: FC = () => {
                         {
                             hotSaleList.map((item,index)=>{
                                 return (
-                                    <dl>
+                                    <dl key={index}>
                                         <dt>
                                             <img src={item.detailImg} alt=""/>
                                         </dt>
@@ -112,4 +112,4 @@ const Home: FC = () => {
         </>
     )
 }
-export default Home;
+export default Home
