@@ -2,6 +2,7 @@ import React,{FC} from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import ListCollapse from '../../components/ListCollapse';
+import Message from "./message";
 import {Search,WaterMark,Tabs} from "antd-mobile";
 import './index.scss';
 const textProps = {
@@ -22,10 +23,10 @@ const Info: FC = () => {
             />
             <Tabs>
                 <Tabs.TabPane title='联系人' key='contact'>
-                    <ListCollapse/>
+                    <ListCollapse />
                 </Tabs.TabPane>
                 <Tabs.TabPane title='消息' key='message'>
-                    消息
+                    <Message />
                 </Tabs.TabPane>
             </Tabs>
             <WaterMark {...textProps} />

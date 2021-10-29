@@ -4,7 +4,7 @@
   left: 0;
   bottom: 0;
   background-color: #fff;
-  padding: px2rem(10);
+  padding: px2rem(10) px2rem(30);
   box-sizing: border-box;
   @include flex($justify-content: space-between);
   .footer-link {

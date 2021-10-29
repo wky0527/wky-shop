@@ -19,14 +19,16 @@
           border-radius: 100%;
         }
       }
+      dd {
+        p {
+          color: $color-text-gray;
+        }
+      }
     }
   }
   h2 {
     color: $color-content;
     font-size: $font-size-small;
     font-weight: 400;
-  }
-  h2::after {
-
   }
 }

@@ -11,7 +11,7 @@ const List: FC<ListProps> = (props: ListProps) => {
         <>
             {cateList.map((item, index) => {
                 return (
-                    <>
+                    <div key={index}>
                         {
                             id === item.id &&
                             item.list.map((item, index) => {
@@ -44,7 +44,7 @@ const List: FC<ListProps> = (props: ListProps) => {
                                 )
                             })
                         }
-                    </>
+                    </div>
                 )
             })
             }

@@ -1,85 +1,47 @@
 import React, {FC, useState} from "react";
 import {RightOutline} from 'antd-mobile-icons'
 import './index.scss';
-import {} from './data';
+import {list} from './data';
 const ListCollapse: FC = () => {
     const [showList,useShowList] = useState(false);
+    const [curList,useCurList] = useState(1);
+    const showSwitch = (id:Number,index:Number) => {
+        useShowList(true)
+        useCurList(id)
+    }
     return (
         <div className='list-collapse'>
-            <ul>
-                <div className='left-title'>
-                    <RightOutline/>
-                    <h2>我的好友</h2>
-                </div>
-                <li>
-                    <dl>
-                        <dt>
-                            <img src="https://img0.baidu.com/it/u=199023397,1701150760&fm=26&fmt=auto" alt=""/>
-                        </dt>
-                        <dd>
-                            <span>冬旭</span>
-                        </dd>
-                    </dl>
+            {
+                list.map((item,index)=>{
+                   return (
+                       <ul key={index}>
+                           <div className='left-title' onClick={()=> showSwitch(item.id,index)}>
+                               <RightOutline/>
+                               <h2>{item.title}</h2>
+                           </div>
+                           {curList === item.id && <li key={item.id}>
+                               {
+                                   item.children.map((item, index) => {
+                                       return (
+                                           <dl key={index}>
+                                               <dt>
+                                                   <img src={item.img} alt=""/>
+                                               </dt>
+                                               <dd>
+                                                   <span>{item.name}</span>
+                                                   <p>{item.content}</p>
+                                               </dd>
+                                           </dl>
 
-                    <dl>
-                        <dt>
-                            <img src="https://img0.baidu.com/it/u=199023397,1701150760&fm=26&fmt=auto" alt=""/>
-                        </dt>
-                        <dd>
-                            <span>薇薇</span>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <img src="https://img0.baidu.com/it/u=199023397,1701150760&fm=26&fmt=auto" alt=""/>
-                        </dt>
-                        <dd>
-                            <span>雪芹</span>
-                        </dd>
-                    </dl>
-
-                </li>
-            </ul>
-            <ul>
-                <div className='left-title'>
-                    <RightOutline/>
-                    <h2>❤️</h2>
-                </div>
-                <li>
-                    <dl>
-                        <dt>
-                            <img src="https://img0.baidu.com/it/u=199023397,1701150760&fm=26&fmt=auto" alt=""/>
-                        </dt>
-                        <dd>
-                            <span>汤汤</span>
-                        </dd>
-                    </dl>
-                </li>
-            </ul>
-            <ul>
-                <div className='left-title'>
-                    <RightOutline/>
-                    <h2>黑名单</h2>
-                </div>
-                <li>
-                    <dl>
-                        <dt>
-                            <img src="https://img0.baidu.com/it/u=199023397,1701150760&fm=26&fmt=auto" alt=""/>
-                        </dt>
-                        <dd>
-                            <span>张三</span>
-                        </dd>
-                    </dl>
-                    <dl>
-                        <dt>
-                            <img src="https://img0.baidu.com/it/u=199023397,1701150760&fm=26&fmt=auto" alt=""/>
-                        </dt>
-                        <dd>
-                            <span>李四</span>
-                        </dd>
-                    </dl>
-                </li>
-            </ul>
+                                       )
+                                   })
+                               }
+                           </li>
+                           }
+                       </ul>
+                   )
+                })
+            }
         </div>
     )
 }

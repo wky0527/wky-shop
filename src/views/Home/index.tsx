@@ -40,7 +40,7 @@ const Home: FC = () => {
                         {
                             navList.map((item, index) => {
                                 return (
-                                    <li>
+                                    <li key={index}>
                                         <img src={getImageUrl(item.imgSrc)} alt=''/>
                                         <span>{item.name}</span>
                                     </li>
