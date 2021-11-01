@@ -27,11 +27,11 @@ const CartList: FC = () => {
                                     </dt>
                                     <dd>
                                         <p>{item.title}</p>
-                                        <p>
+                                        <div>
                                             <Tag color='red' fill='outline'>
                                                 {item.tag}
                                             </Tag>
-                                        </p>
+                                        </div>
                                         <p>
                                             <span className='cart-price'>
                                                 ¥<b>{item.price}</b>
@@ -48,15 +48,15 @@ const CartList: FC = () => {
                 })
             }
             <div className='cart-total'>
-                <p>
+                <div className='all'>
                     <Checkbox>全选</Checkbox>
-                </p>
-                <p>
+                </div>
+                <div className='total'>
                     合计: <span>¥<b>0</b></span>
                     <Button  fill='none' color='primary' style={{'--border-radius': '16px','--background-color':'#ff6430'}}>
                         结算
                     </Button>
-                </p>
+                </div>
             </div>
         </div>
 

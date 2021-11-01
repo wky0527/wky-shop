@@ -37,19 +37,19 @@ const MyList: FC = () => {
                     </List.Item>
                 </List>
                 <div className="my-order-detail">
-                    <a href="javascript:;">
+                    <a href="#">
                         <img src={getImageUrl('substitutePay.jpg')} alt=""/>
                         <span>代付款</span>
                     </a>
-                    <a href="javascript:;">
+                    <a href="#">
                         <img src={getImageUrl('collectGoods.jpg')}  alt=""/>
                         <span>待收货</span>
                     </a>
-                    <a href="javascript:;">
+                    <a href="#">
                         <img src={getImageUrl('generationEvaluation.jpg')} alt=""/>
                         <span>待评价</span>
                     </a>
-                    <a href="javascript:;">
+                    <a href="#">
                         <img src={getImageUrl('refund.jpg')} alt=""/>
                         <span>退款/售后</span>
                     </a>

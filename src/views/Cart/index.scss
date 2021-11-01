@@ -104,21 +104,21 @@
     left: 0;
     padding: px2rem(20) px2rem(30);
     @include flex($justify-content: space-between);
-    p {
+    .all {
       .adm-checkbox-content {
         color: $color-text-gray;
         font-size: $font-size-small;
       }
+    }
+    .total {
       .adm-button {
         margin-left: px2rem(20);
         color: $bg;
       }
-      &:last-child {
-        span {
-          color: #FF5A27;
-          b {
-            font-size: $font-size-middle;
-          }
+      span {
+        color: #FF5A27;
+        b {
+          font-size: $font-size-middle;
         }
       }
     }

@@ -5,7 +5,7 @@ import {list} from './data';
 const ListCollapse: FC = () => {
     const [showList,useShowList] = useState(false);
     const [curList,useCurList] = useState(1);
-    const showSwitch = (id:Number,index:Number) => {
+    const showSwitch = (id:any) => {
         useShowList(true)
         useCurList(id)
     }
@@ -15,7 +15,7 @@ const ListCollapse: FC = () => {
                 list.map((item,index)=>{
                    return (
                        <ul key={index}>
-                           <div className='left-title' onClick={()=> showSwitch(item.id,index)}>
+                           <div className='left-title' onClick={()=> showSwitch(item.id)}>
                                <RightOutline/>
                                <h2>{item.title}</h2>
                            </div>
