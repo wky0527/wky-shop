@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import {resolve} from "path";
 import reactRefresh from '@vitejs/plugin-react-refresh'
-function pathResolve(dir) {
+function pathResolve(dir:any) {
   return resolve(process.cwd(), '.', dir)
 }
 // https://vitejs.dev/config/
