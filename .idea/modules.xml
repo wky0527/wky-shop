@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/h5-react-redux-vite.iml" filepath="$PROJECT_DIR$/.idea/h5-react-redux-vite.iml" />
+      <module fileurl="file://$USER_HOME$/WebstormProjects/node-server/.idea/node-server.iml" filepath="$USER_HOME$/WebstormProjects/node-server/.idea/node-server.iml" />
     </modules>
   </component>
 </project>

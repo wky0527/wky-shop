@@ -6,8 +6,13 @@ function pathResolve(dir:any) {
 }
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/h5-react-redux-vite/',
+  base: '/wky-shop/',
   plugins: [reactRefresh()],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3002',
+    }
+  },
   css: {
     preprocessorOptions: {
       scss: {
@@ -25,5 +30,10 @@ export default defineConfig({
       '@': pathResolve('src') + '/',
       "~/": pathResolve('src') + '/',
     }
+  },
+  define: {
+    'process.env': {},
+    'process.platform': null,
+    'process.version': null,
   }
 })

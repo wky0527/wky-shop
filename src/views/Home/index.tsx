@@ -4,8 +4,13 @@ import Footer from "../../components/Footer";
 import {Swiper} from 'antd-mobile';
 import {navList, activeList,hotSaleList} from './data';
 import './index.scss';
-
+import home from '../../api/home.js';
 const Home: FC = () => {
+    useEffect(()=>{
+       home.all().then((res)=>{
+           console.log(res)
+       })
+    })
     const getImageUrl = (imgSrc: string) => {
         return new URL(`../../assets/images/${imgSrc}`, import.meta.url).href
     }
