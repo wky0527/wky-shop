@@ -1,59 +1,66 @@
 import React, {FC, useState, useEffect} from "react";
-import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import {Swiper} from 'antd-mobile';
-import {navList, activeList,hotSaleList} from './data';
+import {Swiper,Grid,InfiniteScroll} from 'antd-mobile';
+import {navList, activeList, hotSaleList} from './data';
 import './index.scss';
 import home from '../../api/home.js';
+import Icon from '../../components/Icon';
 const Home: FC = () => {
-    useEffect(()=>{
-       home.all().then((res)=>{
-           console.log(res)
-       })
-    })
-    const getImageUrl = (imgSrc: string) => {
-        return new URL(`../../assets/images/${imgSrc}`, import.meta.url).href
+    const [swiper,setSwiper] = useState([]);
+    const [entry,setEntry] = useState([]);
+    const [hasMore,setHasMore] = useState(true);
+    async function loadMore() {
+        const {data}  = await home.all()
+        const {swiper,entry} = data;
+        setSwiper(swiper);
+        setEntry(entry);
+        setHasMore(data.length > 0)
     }
+    useEffect(() => {
+        // const getAllHomeData = async () => {
+        //     try {
+        //         const {data}  = await home.all().then(r => r);
+        //         const {swiper,entry} = data;
+        //         setSwiper(swiper);
+        //         setEntry(entry);
+        //         setHasMore(data.length>0)
+        //      } catch (err) {
+        //         console.log(err)
+        //     }
+        // }
+        loadMore()
+    },[])
     return (
-        <>
-            <Header title= '首页'/>
+        <div className='ant-home-wrap'>
             <Swiper autoplay>
-                <Swiper.Item>
-                    <div style={{background: '#ace0ff'}} className='content'>
-                        1
-                    </div>
-                </Swiper.Item>
-                <Swiper.Item>
-                    <div style={{background: '#bcffbd'}} className='content'>
-                        2
-                    </div>
-                </Swiper.Item>
-                <Swiper.Item>
-                    <div style={{background: '#e4fabd'}} className='content'>
-                        3
-                    </div>
-                </Swiper.Item>
-                <Swiper.Item>
-                    <div style={{background: '#ffcfac'}} className='content'>
-                        4
-                    </div>
-                </Swiper.Item>
+                {
+                    swiper.map((item,index)=>{
+                        return (
+                            <Swiper.Item key={index}>
+                                <img src={item} alt=""/>
+                            </Swiper.Item>
+                        )
+                    })
+                }
             </Swiper>
-            <div className='home-main'>
-                <div className="home-nav">
-                    <ul>
-                        {
-                            navList.map((item, index) => {
-                                return (
-                                    <li key={index}>
-                                        <img src={getImageUrl(item.imgSrc)} alt=''/>
-                                        <span>{item.name}</span>
-                                    </li>
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
+            <div className="home-nav">
+                <Grid columns={4} gap={8}>
+                    {
+                        entry.map((item, index) => {
+                            return (
+                                <Grid.Item key={index}>
+                                    <a href="#" className='adm-grid-row-item'>
+                                        <div className='icon-bg' style={{background: item.bgColor}}>
+                                            <Icon type={item.icon} />
+                                        </div>
+                                        <span>{item.title}</span>
+                                    </a>
+                                </Grid.Item>
+                            )
+                        })
+                    }
+                </Grid>
+            </div>
                 <div className="home-content">
                     <ul>
                         {
@@ -83,38 +90,35 @@ const Home: FC = () => {
                             })
                         }
                     </ul>
-                </div>
-                <div className='home-recommend'>
-                    <img src="https://img.alicdn.com/simba/img/TB1pIQFjbr1gK0jSZR0SuvP8XXa.jpg" alt=""/>
-                </div>
-                <div className='home-hot-sale'>
-                    <div className="hot-title">
-                        <span>热卖单品</span>
-                    </div>
-                    <div className="hot-content">
-                        {
-                            hotSaleList.map((item,index)=>{
-                                return (
-                                    <dl key={index}>
-                                        <dt>
-                                            <img src={item.detailImg} alt=""/>
-                                        </dt>
-                                        <dd>
-                                            <p>{item.title}</p>
-                                             <p>
-                                                 <span>¥{item.price}</span>
-                                                 <span>销量：{item.salesVolume}</span>
-                                             </p>
-                                        </dd>
-                                    </dl>
-                                )
-                            })
-                        }
-                    </div>
-                </div>
+                {/*<div className='home-hot-sale'>*/}
+                {/*    <div className="hot-title">*/}
+                {/*        <span>热卖单品</span>*/}
+                {/*    </div>*/}
+                {/*    <div className="hot-content">*/}
+                {/*        {*/}
+                {/*            hotSaleList.map((item, index) => {*/}
+                {/*                return (*/}
+                {/*                    <dl key={index}>*/}
+                {/*                        <dt>*/}
+                {/*                            <img src={item.detailImg} alt=""/>*/}
+                {/*                        </dt>*/}
+                {/*                        <dd>*/}
+                {/*                            <p>{item.title}</p>*/}
+                {/*                            <p>*/}
+                {/*                                <span>¥{item.price}</span>*/}
+                {/*                                <span>销量：{item.salesVolume}</span>*/}
+                {/*                            </p>*/}
+                {/*                        </dd>*/}
+                {/*                    </dl>*/}
+                {/*                )*/}
+                {/*            })*/}
+                {/*        }*/}
+                {/*    </div>*/}
+                {/*</div>*/}
             </div>
+            <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
             <Footer></Footer>
-        </>
+        </div>
     )
 }
 export default Home

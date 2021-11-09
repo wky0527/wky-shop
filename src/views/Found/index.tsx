@@ -8,7 +8,7 @@ import './index.scss';
 const textProps = {
     content: 'Wang Ke Yu'
 }
-const Info: FC = () => {
+const Found: FC = () => {
     return (
         <>
             <Header title='消息'/>
@@ -34,4 +34,4 @@ const Info: FC = () => {
         </>
     )
 }
-export default Info;
+export default Found;

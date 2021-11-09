@@ -1,6 +1,5 @@
 import axios from 'axios';
 import Qs from 'qs';
-import { message } from 'antd';
 // import store from "@/store";
 // import {router} from "@/router";
 
@@ -60,7 +59,7 @@ instance.interceptors.response.use((response) => {
             noticeConfig = {title: message};
     }
     if (_message) {
-        message.success(_message);
+       console.log(_message)
     }
 
     return Promise.reject(err)

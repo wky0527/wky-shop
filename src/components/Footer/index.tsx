@@ -1,21 +1,24 @@
-import React,{useState,useEffect} from "react";
+import React,{useState,useEffect,FC} from "react";
 import {NavLink} from 'react-router-dom';
+import home from "../../api/home";
+import {getImageUrl} from '../../utils/index.js';
 import './index.scss';
-const Footer = () => {
-    const [footerNav,useFooterNav] = useState([
-        { path: "/", exact: true, icon: "home.jpg", name: "首页" },
-        { path: "/category", exact: false, icon: "category.jpg", name: "分类" },
-        { path: "/info", exact: false, icon: "info.jpg", name: "消息" },
-        { path: "/cart", exact: false, icon: "cart.jpg", name: "购物车" },
-        { path: "/my", exact: false, icon: "my.jpg", name: "我的" }
-    ])
+const Footer:FC = () => {
+    const [footerNav,setFooterNav] = useState([]);
+    const [activeLink, setActiveLink] = useState(false);
     useEffect(()=>{
+        const getFooterNav = async () => {
+            try {
+                const {data:{data}} = await home.navigate().then(r => r);
+                setFooterNav(data)
+                console.log('执行了')
+            }catch (err){
+                console.log(err)
+            }
+        }
+        getFooterNav()
+    },[])
 
-    })
-
-    const getImageUrl = (icon:string) => {
-        return new URL(`../../assets/images/${icon}`, import.meta.url).href
-    }
     return (
         <div className='ant-mobile-footer'>
             {
@@ -23,11 +26,18 @@ const Footer = () => {
                     return (
                         <NavLink
                             to={item.path}
-                            exact={item.exact}
-                            key={index}
+                            exact
+                            // exact={item.exact}
+                            key={item.id}
+                            isActive={(match,location) => {
+                                match && setActiveLink(index)
+                                return match
+                            }}
                             className='footer-link'
                         >
-                            <img src={getImageUrl(item.icon)} alt='' className='footer-icon'/>
+                            {
+                                activeLink === index ?<img src={getImageUrl(item.activeIcon)} alt='' className='footer-icon'/>:<img src={getImageUrl(item.icon)} alt='' className='footer-icon'/>
+                            }
                             <span>{item.name}</span>
                         </NavLink>
                     )
