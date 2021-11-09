@@ -1,4 +1,5 @@
 .adm-swiper {
+  position: relative;
   .content {
     color: #ffffff;
     display: flex;
@@ -8,7 +9,25 @@
     user-select: none;
   }
 }
-
+.adm-search-wrap,.adm-search-wrap-active {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: px2rem(100);
+  z-index: 999;
+  .adm-search {
+    width: 94%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top:8px;
+    margin: auto;
+  }
+}
+.adm-search-wrap-active {
+  background-color: rgba(203,77,108,0.8);
+}
 .home-nav {
   margin-bottom: px2rem(20);
   background-color: $bg;

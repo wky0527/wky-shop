@@ -3,12 +3,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: px2rem(70);
-  line-height: px2rem(70);
-  background-color: #39A6FD;
+  height: px2rem(100);
+  background-color: $bg;
   z-index: 100;
+  border-bottom: 1px solid $color-border-solid;
   .adm-nav-bar-title {
-    font-size: 14px;
-    color: #fff;
+    font-size: px2rem(32);
+    color: $font-size-middle;
   }
 }

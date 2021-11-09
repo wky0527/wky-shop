@@ -49,7 +49,7 @@ instance.interceptors.response.use((response) => {
             }
             break;
         case 404:
-            _message = 'Not Found';
+            _message = 'Not Category';
             break;
         case 422:
             _message = '表单验证失败'

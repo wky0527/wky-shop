@@ -1,12 +1,16 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 import {cateList} from "./data";
-
+import {InfiniteScroll} from 'antd-mobile';
 interface ListProps {
     id: Number
 }
-
 const List: FC<ListProps> = (props: ListProps) => {
     const {id} = props;
+    const [hasMore,setHasMore] = useState(true);
+
+    async function loadMore() {
+        setHasMore(cateList.length>0)
+    }
     return (
         <>
             {cateList.map((item, index) => {
@@ -46,8 +50,9 @@ const List: FC<ListProps> = (props: ListProps) => {
                         }
                     </div>
                 )
-            })
+              })
             }
+            <InfiniteScroll loadMore={loadMore} hasMore={hasMore} />
         </>
     )
 }

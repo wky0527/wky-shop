@@ -1,45 +1,91 @@
-.adm-search {
-  border-bottom: 1px solid $color-bottom-border;
-  padding: 0 px2rem(10);
+.adm-nav-bar-title {
+  margin-top: px2rem(6);
+  img {
+    width: px2rem(170);
+    height: px2rem(55);
+  }
 }
-.adm-tabs-tab {
-  font-size: $font-size-small;
-}
-.info-message {
-  margin-bottom: px2rem(96);
-  dl {
-    @include flex;
-    margin-bottom: px2rem(15);
-    border-bottom: 1px solid $color-bottom-border;
-    padding: 0 px2rem(20);
-    box-sizing: border-box;
-    padding-bottom: px2rem(20);
-    &:last-child {
-      border: none;
-    }
-    dt {
-      width: px2rem(80);
-      height: px2rem(80);
-      margin-right: px2rem(20);
-      img {
-        width: 100%;
-        height: 100%;
-        display: block;
-        border-radius: 100%;
-      }
-    }
-    dd {
+.category-main {
+  margin-top: px2rem(100);
+
+  .adm-tabs-tab {
+    font-size: $font-size-small
+  }
+
+  .adm-tabs-content {
+    padding: 0;
+
+    .category-list {
+      background: $bg;
       width: 100%;
-      p {
-        color: $color-text-gray;
-        span {
+
+      .title {
+        padding: px2rem(20) 0;
+        @include flex($justify-content: space-between);
+
+        .left-line, .right-line {
+          background: linear-gradient(270deg, #c2c2c2 0%, #ffffff 100%);
+          width: px2rem(280);
+          height: 1px;
+          display: block;
+        }
+
+        .right-line {
+          background: linear-gradient(-270deg, #c2c2c2 0%, #ffffff 100%);
+        }
+
+        .center-title {
           font-size: $font-size-small;
           color: $color-content;
-          font-weight: 600;
         }
-        &:first-child {
-          @include flex($justify-content: space-between)
+      }
+
+      .content {
+        @include flex($justify-content: space-between, $wrap: wrap);
+        padding: 0 px2rem(12);
+        box-sizing: border-box;
+        padding-bottom: px2rem(8);
+
+        dl {
+          dt {
+            width: px2rem(230);
+            height: px2rem(230);
+
+            img {
+              width: 100%;
+              height: 100%;
+              display: block;
+            }
+          }
+
+          dd {
+            padding: px2rem(10) 0;
+
+            p {
+              @include multipleLine($line: 3, $width: px2rem(220));
+
+              &:last-child {
+                @include flex($justify-content: space-between);
+
+                span {
+                  &:first-child {
+                    color: #FF4400;
+                  }
+
+                  &:last-child {
+                    color: #999;
+                    text-decoration: line-through
+                  }
+                }
+              }
+            }
+          }
         }
+      }
+
+      .content::after {
+        content: '';
+        width: 33%;
       }
     }
   }

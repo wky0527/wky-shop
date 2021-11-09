@@ -1,35 +1,29 @@
-import React,{FC} from "react";
+import React, {FC, useState} from "react";
+import {Tabs} from 'antd-mobile';
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import ListCollapse from '../../components/ListCollapse';
-import Message from "./message";
-import {Search,WaterMark,Tabs} from "antd-mobile";
 import './index.scss';
-const textProps = {
-    content: 'Wang Ke Yu'
-}
+import {navList} from "./data";
+import List from './list';
+
 const Found: FC = () => {
+    const img = <img src="http://m.ftsucai.com/demo/202102/appmb010/themes/img/user/icon-dis.png" alt=""/>
     return (
         <>
-            <Header title='消息'/>
-            <Search
-                className='header-mt'
-                placeholder='请输入内容'
-                showCancelButton
-                style={{
-                    '--border-radius': '100px',
-                    '--background': 'rgba(255, 255, 255, 0.1)',
-                }}
-            />
-            <Tabs>
-                <Tabs.TabPane title='联系人' key='contact'>
-                    <ListCollapse />
-                </Tabs.TabPane>
-                <Tabs.TabPane title='消息' key='message'>
-                    <Message />
-                </Tabs.TabPane>
-            </Tabs>
-            <WaterMark {...textProps} />
+            <Header title={img}/>
+            <div className='category-main'>
+                <Tabs>
+                    {
+                        navList.map((item,index)=>{
+                           return (
+                               <Tabs.TabPane title={item.name} key={item.id}>
+                                   <List id={item.id}/>
+                               </Tabs.TabPane>
+                           )
+                        })
+                    }
+                </Tabs>
+            </div>
             <Footer/>
         </>
     )

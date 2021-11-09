@@ -1,28 +1,15 @@
-import React, {FC, useState} from "react";
-import {Tabs} from 'antd-mobile';
+import React,{FC} from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import CategoryList from "./category";
+import {Search} from "antd-mobile";
 import './index.scss';
-import {navList} from "./data";
-import List from './list';
-
-const Category: FC<any> = () => {
+const Category: FC = () => {
+    const header =  <Search placeholder='请输入内容' showCancelButton style={{'--border-radius': '100px'}}/>
     return (
         <>
-            <Header title='商品分类'/>
-            <div className='category-main'>
-                <Tabs>
-                    {
-                        navList.map((item,index)=>{
-                           return (
-                               <Tabs.TabPane title={item.name} key={item.id}>
-                                   <List id={item.id}/>
-                               </Tabs.TabPane>
-                           )
-                        })
-                    }
-                </Tabs>
-            </div>
+            <Header title={header}/>
+            <CategoryList/>
             <Footer/>
         </>
     )
