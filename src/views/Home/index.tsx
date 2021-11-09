@@ -52,10 +52,10 @@ const Home: FC = () => {
                             return (
                                 <Grid.Item key={index}>
                                     <a href="#" className='adm-grid-row-item'>
-                                        <div className='icon-bg' style={{background: item.bgColor}}>
-                                            <Icon type={item.icon} />
+                                        <div className='icon-bg' style={{background: item['bgColor']}}>
+                                            <Icon type={item['icon']} />
                                         </div>
-                                        <span>{item.title}</span>
+                                        <span>{item['title']}</span>
                                     </a>
                                 </Grid.Item>
                             )

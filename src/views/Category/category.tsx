@@ -22,20 +22,18 @@ const CategoryList: FC = () => {
         <div className='adm-tabs'>
             <Tabs tabPosition='left'>
                 {
-                    category.map(item => {
+                    category.map((item:any) => {
                         return (
-                            <TabPane tab={item.title} key={item.id}>
-                                <img src={item.img} alt=""/>
-                                <p>{item.title}</p>
+                            <TabPane tab={item['title']} key={item['id']}>
+                                <img src={item['img']} alt=""/>
+                                <p>{item['title']}</p>
                                 <Grid columns={3} gap={8}>
                                 {
-                                    item.data.map((item, index) => {
+                                    item['data'].map((item:any,index:number) => {
                                         return (
-
-
-                                            <Grid.Item>
-                                                    <img src={item.img} alt=""/>
-                                                    <span>{item.name}</span>
+                                            <Grid.Item key={index}>
+                                                    <img src={item['img']} alt=""/>
+                                                    <span>{item['name']}</span>
                                                 </Grid.Item>
 
                                         )

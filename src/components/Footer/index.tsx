@@ -5,13 +5,12 @@ import {getImageUrl} from '../../utils/index.js';
 import './index.scss';
 const Footer:FC = () => {
     const [footerNav,setFooterNav] = useState([]);
-    const [activeLink, setActiveLink] = useState(false);
+    const [activeLink, setActiveLink] = useState();
     useEffect(()=>{
         const getFooterNav = async () => {
             try {
                 const {data:{data}} = await home.navigate().then(r => r);
                 setFooterNav(data)
-                console.log('执行了')
             }catch (err){
                 console.log(err)
             }
@@ -22,23 +21,22 @@ const Footer:FC = () => {
     return (
         <div className='ant-mobile-footer'>
             {
-                footerNav.map((item,index)=>{
+                footerNav.map((item,index:any)=>{
                     return (
                         <NavLink
-                            to={item.path}
+                            to={item['path']}
                             exact
-                            // exact={item.exact}
-                            key={item.id}
-                            isActive={(match,location) => {
+                            key={item['id']}
+                            isActive={(match:any) => {
                                 match && setActiveLink(index)
                                 return match
                             }}
                             className='footer-link'
                         >
                             {
-                                activeLink === index ?<img src={getImageUrl(item.activeIcon)} alt='' className='footer-icon'/>:<img src={getImageUrl(item.icon)} alt='' className='footer-icon'/>
+                                activeLink === index ?<img src={getImageUrl(item['activeIcon'])} alt='' className='footer-icon'/>:<img src={getImageUrl(item['icon'])} alt='' className='footer-icon'/>
                             }
-                            <span>{item.name}</span>
+                            <span>{item['name']}</span>
                         </NavLink>
                     )
                 })

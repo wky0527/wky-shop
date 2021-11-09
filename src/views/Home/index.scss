@@ -34,7 +34,6 @@
 
   .adm-grid-row-item {
     @include flex($direction: column);
-
     .icon-bg {
       width: px2rem(80);
       height: px2rem(80);
@@ -51,6 +50,7 @@
 
       span {
         padding: px2rem(10) 0;
+        color: $color-text-black;
       }
     }
   }
