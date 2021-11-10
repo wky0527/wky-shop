@@ -8,17 +8,15 @@ interface propsType {
     leftTitle?: String,//左侧内容
     rightTitle?: String//右侧内容
     title?: any,//标题
+    customBack(): void //方法
 }
-const Header  = ({backTitle,backArrow,leftTitle,rightTitle,title}:propsType) => {
-    const back = () => {
-        Toast.show({
-            content: '点击了返回区域',
-            duration: 1000,
-        })
-    }
+const Header  = ({backTitle,backArrow,leftTitle,rightTitle,title,customBack}:propsType) => {
     const icon = <Icon type={'icon-62'}/>
+    const onBack = () => {
+        history.back();
+    }
     return (
-            <NavBar back={backTitle} backArrow={backArrow} left={leftTitle} right={rightTitle || icon} onBack={back} >
+            <NavBar back={backTitle} backArrow={backArrow} left={leftTitle} right={rightTitle || icon} onBack={customBack || onBack} >
                 {title}
             </NavBar>
     )
