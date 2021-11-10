@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {AppRoutes} from './router';
 import {HashRouter} from "react-router-dom";
 import {WaterMark} from 'antd-mobile';
