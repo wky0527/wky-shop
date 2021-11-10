@@ -10,7 +10,10 @@ export default defineConfig({
   plugins: [reactRefresh()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3002',
+      '/api': {
+        target: 'http://localhost:3002',
+        changeOrigin: true
+      }
     }
   },
   css: {

@@ -7,9 +7,6 @@ const Found = lazy(() => import('../views/Found'))
 const My = lazy(() => import('../views/My'))
 import { Loading } from 'antd-mobile'
 export const AppRoutes = () => {
-    useEffect(()=>{
-
-    })
     return (
         <Suspense fallback={<div><Loading color='primary'/><span>加载中</span></div>}>
                <Switch>
