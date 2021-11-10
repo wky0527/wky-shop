@@ -8,7 +8,7 @@ interface propsType {
     leftTitle?: String,//左侧内容
     rightTitle?: String//右侧内容
     title?: any,//标题
-    customBack(): void //方法
+    customBack?(): void //方法
 }
 const Header  = ({backTitle,backArrow,leftTitle,rightTitle,title,customBack}:propsType) => {
     const icon = <Icon type={'icon-62'}/>
