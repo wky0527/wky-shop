@@ -6,13 +6,13 @@ function pathResolve(dir:any) {
 }
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/wky-shop/',
+  // base: '/wky-shop/',
   plugins: [reactRefresh()],
   server: {
     proxy: {
       '/api': {
         target: 'http://localhost:3002',
-        changeOrigin: true
+        changeOrigin: true,
       }
     }
   },

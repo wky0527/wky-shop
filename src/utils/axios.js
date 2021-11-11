@@ -2,11 +2,16 @@ import axios from 'axios';
 import Qs from 'qs';
 // import store from "@/store";
 // import {router} from "@/router";
-
-
+const baseUrl = import.meta.env.MODE === 'development' ? '': import.meta.env.BASE_URL
 const instance = axios.create({
-    baseURL: '',
-    headers: {Accept: 'text/json'},
+    baseURL: baseUrl,
+    headers: {
+        Accept: 'text/json',
+        "Access-Control-Allow-Origin":"*",
+        "Access-Control-Allow-Methods":"PUT,POST,GET,DELETE,OPTIONS",
+        "Access-Control-Allow-Headers": 'Content-Type, Content-Length, Authorization, Accept, X-Requested-With , yourHeaderFeild',
+        "Content-Type":"application/json;charset=utf-8"
+    },
 })
 
 // 请求拦截
