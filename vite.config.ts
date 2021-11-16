@@ -13,10 +13,10 @@ export default defineConfig(({command})=>{
       reactRefresh(),
       viteMockServe({
         mockPath: "mock",
-        localEnabled: command === 'build',
-        prodEnabled: command === 'serve',
+        localEnabled: command === 'serve',
+        prodEnabled: command === 'build',
         injectCode: `
-          import {setupProdMockServer} from '/mock/mockProdServer.js';
+          import {setupProdMockServer} from '/mock/mockProdServer.ts';
           setupProdMockServer();
           `,
       }),
