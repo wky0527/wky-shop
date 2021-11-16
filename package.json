@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "homepage": "https://wky0527.github.io/h5-react-redux-vite",
+  "homepage": "https://wky0527.github.io/wky-shop",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
