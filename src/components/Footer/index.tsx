@@ -1,6 +1,6 @@
 import React,{useState,useEffect,FC} from "react";
 import {NavLink} from 'react-router-dom';
-import home from "../../api/home";
+// import home from "../../api/home";
 import {getImageUrl} from '../../utils/index.js';
 import './index.scss';
 const Footer:FC = () => {
@@ -9,8 +9,12 @@ const Footer:FC = () => {
     useEffect(()=>{
         const getFooterNav = async () => {
             try {
-                const {data:{data}} = await home.navigate().then(r => r);
-                setFooterNav(data)
+                // const {data:{data}} = await home.navigate().then(r => r);
+                await fetch('/backend/home/navigation').then(res=>{
+                    return res.json()
+                }).then(data=>{
+                    setFooterNav(data.data)
+                })
             }catch (err){
                 console.log(err)
             }

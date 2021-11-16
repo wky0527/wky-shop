@@ -3,7 +3,7 @@ import Footer from "../../components/Footer";
 import {Swiper,Grid,InfiniteScroll,Search} from 'antd-mobile';
 import {navList, activeList, hotSaleList} from './data';
 import './index.scss';
-import home from '../../api/home.js';
+// import home from '../../api/home.js';
 import Icon from '../../components/Icon';
 const Home: FC = () => {
     const [swiper,setSwiper] = useState([]);
@@ -12,12 +12,16 @@ const Home: FC = () => {
     const [hasMore,setHasMore] = useState(true);
     const [scrollColor,setScrollColor] = useState(false)
     async function loadMore() {
-        const {data}  = await home.all();
-        const {swiper,entry,list} = data;
-        setSwiper(swiper);
-        setEntry(entry);
-        setList(list);
-        setHasMore(data.length > 0)
+        // const {data}  = await home.all();
+        await fetch('/backend/home/all').then(res=>{
+            return res.json()
+        }).then(data=>{
+            const {swiper,entry,list} = data.data;
+            setSwiper(swiper);
+            setEntry(entry);
+            setList(list);
+            setHasMore(data.length > 0)
+        })
     }
     window.onscroll = ()=>{
         if(document.documentElement.scrollTop > 0) {

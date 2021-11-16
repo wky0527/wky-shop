@@ -1,21 +1,28 @@
 import { defineConfig } from 'vite';
 import {resolve} from "path";
-import reactRefresh from '@vitejs/plugin-react-refresh'
+import reactRefresh from '@vitejs/plugin-react-refresh';
+import { viteMockServe } from "vite-plugin-mock";
 function pathResolve(dir:any) {
   return resolve(process.cwd(), '.', dir)
 }
 // https://vitejs.dev/config/
 export default defineConfig({
-  // base: '/wky-shop/',
-  plugins: [reactRefresh()],
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3002',
-        changeOrigin: true,
-      }
-    }
-  },
+  base: '/wky-shop/',
+  plugins: [
+      reactRefresh(),
+    viteMockServe({
+      mockPath: "/mock",
+      supportTs: false
+    }),
+  ],
+  // server: {
+  //   proxy: {
+  //     '/api': {
+  //       target: 'http://localhost:3002',
+  //       changeOrigin: true,
+  //     }
+  //   }
+  // },
   css: {
     preprocessorOptions: {
       scss: {
