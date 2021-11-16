@@ -14,13 +14,12 @@ export default defineConfig(({command})=>{
     plugins: [
       reactRefresh(),
       viteMockServe({
-        mockPath: "mock",
-        localEnabled: command === 'serve',
-        prodEnabled: command !== 'serve' && prodMock,
+        mockPath: 'mock',
+        localEnabled: command === 'serve' || command === 'build',
         injectCode: `
-          import {setupProdMockServer} from './mock/mockProdServer.ts';
-          setupProdMockServer();
-          `,
+        import { setupProdMockServer } from '/mock/index.js';
+        setupProdMockServer();
+      `,
       }),
     ],
     // server: {
