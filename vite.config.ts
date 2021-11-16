@@ -20,7 +20,6 @@ export default defineConfig(({command})=>{
       import {setupProdMockServer} from './mock/mockProdServer';
       setupProdMockServer();
       `,
-        supportTs: false
       }),
     ],
     // server: {
