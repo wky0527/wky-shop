@@ -7,7 +7,6 @@ function pathResolve(dir:any) {
 }
 // https://vitejs.dev/config/
 export default defineConfig(({command})=>{
-  let prodMock = true;
   return {
     base: '/wky-shop/',
     plugins: [
@@ -15,11 +14,11 @@ export default defineConfig(({command})=>{
       viteMockServe({
         mockPath: "mock",
         localEnabled: command === 'serve',
-        prodEnabled: command !== 'serve' && prodMock,
+        prodEnabled: command === 'build',
         injectCode: `
-      import {setupProdMockServer} from './mock/mockProdServer';
-      setupProdMockServer();
-      `,
+          import {setupProdMockServer} from './mock/mockProdServer';
+          setupProdMockServer();
+          `,
       }),
     ],
     // server: {
