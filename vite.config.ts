@@ -6,44 +6,53 @@ function pathResolve(dir:any) {
   return resolve(process.cwd(), '.', dir)
 }
 // https://vitejs.dev/config/
-export default defineConfig({
-  base: '/wky-shop/',
-  plugins: [
+export default defineConfig(({command})=>{
+  let prodMock = true;
+  return {
+    base: '/wky-shop/',
+    plugins: [
       reactRefresh(),
-    viteMockServe({
-      mockPath: "/mock",
-      supportTs: false
-    }),
-  ],
-  // server: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'http://localhost:3002',
-  //       changeOrigin: true,
-  //     }
-  //   }
-  // },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "@/style/base.scss";`
+      viteMockServe({
+        mockPath: "mock",
+        localEnabled: command === 'serve',
+        prodEnabled: command !== 'serve' && prodMock,
+        injectCode: `
+      import {setupProdMockServer} from './mock/mockProdServer';
+      setupProdMockServer();
+      `,
+        supportTs: false
+      }),
+    ],
+    // server: {
+    //   proxy: {
+    //     '/api': {
+    //       target: 'http://localhost:3002',
+    //       changeOrigin: true,
+    //     }
+    //   }
+    // },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/style/base.scss";`
+        },
       },
-    },
-    postcss: {
-      plugins: [
+      postcss: {
+        plugins: [
           // require('autoprefixer'),
-      ]
+        ]
+      }
+    },
+    resolve: {
+      alias: {
+        '@': pathResolve('src') + '/',
+        "~/": pathResolve('src') + '/',
+      }
+    },
+    define: {
+      'process.env': {},
+      'process.platform': null,
+      'process.version': null,
     }
-  },
-  resolve: {
-    alias: {
-      '@': pathResolve('src') + '/',
-      "~/": pathResolve('src') + '/',
-    }
-  },
-  define: {
-    'process.env': {},
-    'process.platform': null,
-    'process.version': null,
   }
 })
