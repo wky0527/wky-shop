@@ -11,8 +11,9 @@ const Footer:FC = () => {
             try {
                 // const {data:{data}} = await home.navigate().then(r => r);
                 await fetch('/backend/home/navigation').then(res=>{
-                    return res.json()
+                    return res.json();
                 }).then(data=>{
+                    console.log(data)
                     setFooterNav(data.data)
                 })
             }catch (err){

@@ -622,6 +622,7 @@ export default [
         url: '/backend/home/all',
         method: 'get',
         response: () => {
+            debugger
             return {
                 code: 200,
                 message: 'ok',
