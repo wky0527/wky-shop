@@ -35,7 +35,7 @@ const Home: FC = () => {
     },[])
     return (
         <div className= "adm-home-wrap">
-            build
+            build1
             <div className= {scrollColor ? 'adm-search-wrap-active': 'adm-search-wrap'}>
                 <Search placeholder='请输入内容' showCancelButton />
             </div>

@@ -15,8 +15,9 @@ export default defineConfig(({command})=>{
       reactRefresh(),
       viteMockServe({
         mockPath: 'mock',
-        localEnabled: command === 'serve' || command === 'build',
-        prodEnabled: true,
+        watchFiles: true,
+        localEnabled: command === 'serve',
+        prodEnabled: command !== 'serve' && prodMock,
         injectCode: `
         import { setupProdMockServer } from '/mock/index.js';
         setupProdMockServer();
