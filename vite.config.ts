@@ -2,11 +2,13 @@ import { defineConfig } from 'vite';
 import {resolve} from "path";
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { viteMockServe } from "vite-plugin-mock";
+
 function pathResolve(dir:any) {
   return resolve(process.cwd(), '.', dir)
 }
 // https://vitejs.dev/config/
 export default defineConfig(({command})=>{
+  let prodMock = true;
   return {
     base: '/wky-shop/',
     plugins: [
@@ -14,9 +16,9 @@ export default defineConfig(({command})=>{
       viteMockServe({
         mockPath: "mock",
         localEnabled: command === 'serve',
-        prodEnabled: command === 'build',
+        prodEnabled: command !== 'serve' && prodMock,
         injectCode: `
-          import {setupProdMockServer} from '/mock/mockProdServer.ts';
+          import {setupProdMockServer} from './mock/mockProdServer.ts';
           setupProdMockServer();
           `,
       }),
