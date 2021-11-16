@@ -1,6 +1,0 @@
-@use "sass:math";
-$baseFontSize:75;
-//返回函数调用方法：在调用属性前执行一次
-@function px2rem($px){
-  @return math.div($px,$baseFontSize) * 1rem;
-}
