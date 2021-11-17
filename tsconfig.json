@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-  "target": "ES2015",//指定ECMAScript目标版本
+  "target": "System",//指定ECMAScript目标版本
  "lib": ["DOM", "DOM.Iterable", "ESNext"],//编译过程中需要引入的库文件的列表。
      "allowJs": true,//	允许编译javascript文件。
    "skipLibCheck": true,//忽略所有的声明文件（*.d.ts）的类型检查。
