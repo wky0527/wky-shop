@@ -2510,10 +2510,10 @@ safe-buffer@5.1.2, safe-buffer@~5.1.1:
   resolved "https://registry.npm.taobao.org/safer-buffer/download/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
 
-sass@^1.43.2:
-  version "1.43.2"
-  resolved "https://registry.npmmirror.com/sass/download/sass-1.43.2.tgz?cache=0&sync_timestamp=1634165162389&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fsass%2Fdownload%2Fsass-1.43.2.tgz#c02501520c624ad6622529a8b3724eb08da82d65"
-  integrity sha1-wCUBUgxiStZiJSmos3JOsI2oLWU=
+sass@^1.43.4:
+  version "1.43.4"
+  resolved "https://registry.npmmirror.com/sass/download/sass-1.43.4.tgz#68c7d6a1b004bef49af0d9caf750e9b252105d1f"
+  integrity sha1-aMfWobAEvvSa8NnK91DpslIQXR8=
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
