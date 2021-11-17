@@ -625,7 +625,7 @@ export default [
             return {
                 code: 200,
                 message: 'ok',
-                data: homeAllData
+                data: ['测试111']
             }
         }
     },
@@ -636,7 +636,7 @@ export default [
             return {
                 code: 200,
                 message: 'ok',
-                data: navigationData
+                data: ['测试']
             }
         }
     }
