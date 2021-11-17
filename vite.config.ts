@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite';
-import {resolve} from "path";
+import path from "path";
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import { viteMockServe } from "vite-plugin-mock";
 
-function pathResolve(dir:any) {
-  return resolve(process.cwd(), '.', dir)
-}
+// function pathResolve(dir:any) {
+//   return resolve(process.cwd(), '.', dir)
+// }
 // https://vitejs.dev/config/
 export default defineConfig(({command})=>{
   let prodMock = true;
@@ -46,8 +46,8 @@ export default defineConfig(({command})=>{
     },
     resolve: {
       alias: {
-        '@': pathResolve('src') + '/',
-        "~/": pathResolve('src') + '/',
+        '@': path.resolve(__dirname,'src') + '/',
+        "~/": path.resolve(__dirname,'src') + '/',
       }
     },
     define: {
