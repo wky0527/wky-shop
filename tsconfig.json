@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-  "target": "ESNext",//指定ECMAScript目标版本
+  "target": "ES2015",//指定ECMAScript目标版本
  "lib": ["DOM", "DOM.Iterable", "ESNext"],//编译过程中需要引入的库文件的列表。
      "allowJs": true,//	允许编译javascript文件。
    "skipLibCheck": true,//忽略所有的声明文件（*.d.ts）的类型检查。
@@ -10,7 +10,7 @@
 //    "strict": true,
 // "forceConsistentCasingInFileNames": true,//	不允许不一致包装引用相同的文件。
 //    "module": "ESNext",//指定生成哪个模块系统代码：
-//    "moduleResolution": "Node",//决定如何处理模块
+   "moduleResolution": "Classic",//决定如何处理模块
 //    "resolveJsonModule": true,
 //    "isolatedModules": true,//无条件地给没有解析的文件生成imports。
     "noEmit": true,//	不生成输出文件
