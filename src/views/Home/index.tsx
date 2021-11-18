@@ -2,8 +2,10 @@ import React, {FC, useState, useEffect} from "react";
 import Footer from "../../components/Footer";
 import {Swiper,Grid,InfiniteScroll,Search} from 'antd-mobile';
 import {navList, activeList, hotSaleList} from './data';
+import {Link} from "react-router-dom";
 import './index.scss';
 // import home from '../../api/home.js';
+import {homeAllData} from '../../../mock/home';
 import Icon from '../../components/Icon';
 const Home: FC = () => {
     const [swiper,setSwiper] = useState([]);
@@ -13,15 +15,20 @@ const Home: FC = () => {
     const [scrollColor,setScrollColor] = useState(false)
     async function loadMore() {
         // const {data}  = await home.all();
-        await fetch('/backend/home/all').then(res=>{
-            return res.json()
-        }).then(data=>{
-            const {swiper,entry,list} = data.data;
-            setSwiper(swiper);
-            setEntry(entry);
-            setList(list);
-            setHasMore(data.length > 0)
-        })
+        // await fetch('/backend/home/all').then(res=>{
+        //     return res.json()
+        // }).then(data=>{
+        //     const {swiper,entry,list} = data.data;
+        //     setSwiper(swiper);
+        //     setEntry(entry);
+        //     setList(list);
+        //     setHasMore(data.length > 0)
+        // })
+        const {swiper,entry,list} = homeAllData;
+        setSwiper(swiper)
+        setEntry(entry);
+        setList(list);
+        setHasMore(Object.keys(homeAllData).length > 0)
     }
     window.onscroll = ()=>{
         if(document.documentElement.scrollTop > 0) {
@@ -35,7 +42,6 @@ const Home: FC = () => {
     },[])
     return (
         <div className= "adm-home-wrap">
-            zzzz
             <div className= {scrollColor ? 'adm-search-wrap-active': 'adm-search-wrap'}>
                 <Search placeholder='请输入内容' showCancelButton />
             </div>
@@ -56,12 +62,12 @@ const Home: FC = () => {
                         entry.map((item, index) => {
                             return (
                                 <Grid.Item key={index}>
-                                    <a href="#" className='adm-grid-row-item'>
+                                    <Link className='adm-grid-row-item' to={item['link']}>
                                         <div className='icon-bg' style={{background: item['bgColor']}}>
                                             <Icon type={item['icon']} />
                                         </div>
                                         <span>{item['title']}</span>
-                                    </a>
+                                    </Link>
                                 </Grid.Item>
                             )
                         })

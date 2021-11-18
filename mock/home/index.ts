@@ -1,4 +1,9 @@
-export const homeAllData = {
+interface navigationDefine {
+   // homeAllData: object,
+    [index: number]: object;
+
+}
+export const homeAllData: any = {
     swiper: ['http://www.ftsucai.com/demo/202102/appmb010/themes/img/banner/news-banner1.jpg',
         'http://www.ftsucai.com/demo/202102/appmb010/themes/img/banner/news-banner2.jpg',
         'http://www.ftsucai.com/demo/202102/appmb010/themes/img/banner/news-banner3.jpg',
@@ -9,48 +14,56 @@ export const homeAllData = {
         {
             title: '每日签到',
             icon: 'icon-qiandao',
-            bgColor: 'rgb(88,180,240)'
+            bgColor: 'rgb(88,180,240)',
+            link: 'signIn'
         },
         {
             title: '限时抢购',
             icon: 'icon-qiandao',
-            bgColor: 'rgb(226,97,92)'
+            bgColor: 'rgb(226,97,92)',
+            link: 'flashSale'
 
         },
         {
             title: '分享领券',
             icon: 'icon-qiandao',
-            bgColor: 'rgb(88,180,240)'
+            bgColor: 'rgb(88,180,240)',
+            link: 'shareCoupon'
 
         },
         {
             title: '会员专享',
             icon: 'icon-qiandao',
-            bgColor: 'rgb(226,97,92)'
+            bgColor: 'rgb(226,97,92)',
+            link: 'members'
 
         },
         {
             title: '每日签到',
             icon: 'icon-qiandao',
-            bgColor: 'rgb(88,180,240)'
+            bgColor: 'rgb(88,180,240)',
+            link: 'signIn'
 
         },
         {
             title: '限时抢购',
             icon: 'icon-qiandao',
-            bgColor: 'rgb(226,97,92)'
+            bgColor: 'rgb(226,97,92)',
+            link: 'flashSale'
 
         },
         {
             title: '分享领券',
             icon: 'icon-qiandao',
-            bgColor: 'rgb(88,180,240)'
+            bgColor: 'rgb(88,180,240)',
+            link: 'shareCoupon'
 
         },
         {
             title: '会员专享',
             icon: 'icon-qiandao',
-            bgColor: 'rgb(226,97,92)'
+            bgColor: 'rgb(226,97,92)',
+            link: 'members'
         }
     ],
     list: [
@@ -561,7 +574,7 @@ export const homeAllData = {
         }
     ]
 }
-export const navigationData = [
+export const navigationData: any  = [
     {
         id: 1,
         name: '首页',
@@ -571,7 +584,7 @@ export const navigationData = [
         activeIcon: 'f1.png',
     },
     {
-        id:2,
+        id: 2,
         name: '分类',
         path: '/category',
         exact: false,
@@ -579,7 +592,7 @@ export const navigationData = [
         activeIcon: 'f5.png'
     },
     {
-        id:3,
+        id: 3,
         name: '发现',
         path: '/found',
         exact: false,
@@ -587,7 +600,7 @@ export const navigationData = [
         activeIcon: 'f2.png'
     },
     {
-        id:4,
+        id: 4,
         name: '购物车',
         path: 'cart',
         exact: false,
@@ -595,11 +608,104 @@ export const navigationData = [
         activeIcon: 'f3.png'
     },
     {
-        id:5,
+        id: 5,
         name: '我的',
         path: 'my',
         exact: false,
         icon: 'f04.png',
         activeIcon: 'f4.png'
+    }
+]
+export const flashSaleData = [
+    {
+        id:1,
+        time: '00:00',
+        status: '已开抢',
+        data: [
+            {
+                img: 'http://m.ftsucai.com/demo/202102/appmb010/themes/img/pd/sf-11.jpg',
+                title: '【16盒装】伊利 安慕希希腊风味常温酸奶原味205g*16盒',
+                price: '89.99',
+                prePrice: '125.65',
+                remainNum: 19
+            },
+            {
+                img: 'http://m.ftsucai.com/demo/202102/appmb010/themes/img/pd/sf-12.jpg',
+                title: 'Doritos 多力多滋 休闲零食 玉米片 劲浓芝士味 15g',
+                price: '89.99',
+                prePrice: '125.65',
+                remainNum: 19
+            },
+            {
+                img: 'http://m.ftsucai.com/demo/202102/appmb010/themes/img/pd/sf-13.jpg',
+                title: '嘀嗒猫 芒果干 办公室休闲零食蜜饯果脯水果干 100g',
+                price: '89.99',
+                prePrice: '125.65',
+                remainNum: 19
+            },
+            {
+                img: 'http://m.ftsucai.com/demo/202102/appmb010/themes/img/pd/sf-14.jpg',
+                title: '麦德好 燕麦巧克力 营养麦片力 休闲零食大礼包 婚庆喜糖果饼干 原味468g',
+                price: '89.99',
+                prePrice: '125.65',
+                remainNum: 19
+            }
+        ]
+    },
+    {
+        id:2,
+        time: '07:00',
+        status: '已开抢',
+        data: [
+            {
+                img: 'http://m.ftsucai.com/demo/202102/appmb010/themes/img/pd/sf-19.jpg',
+                title: '【16盒装】伊利 安慕希希腊风味常温酸奶原味205g*16盒',
+                price: '89.99',
+                prePrice: '125.65',
+                remainNum: 19
+            },
+        ]
+    },
+    {
+        id:3,
+        time: '09:00',
+        status: '已开抢',
+        data: [
+            {
+                img: 'http://m.ftsucai.com/demo/202102/appmb010/themes/img/pd/sf-16.jpg',
+                title: '【16盒装】伊利 安慕希希腊风味常温酸奶原味205g*16盒',
+                price: '89.99',
+                prePrice: '125.65',
+                remainNum: 19
+            },
+        ]
+    },
+    {
+        id:4,
+        time: '13:00',
+        status: '抢购中',
+        data: [
+            {
+                img: 'http://m.ftsucai.com/demo/202102/appmb010/themes/img/pd/sf-17.jpg',
+                title: '【16盒装】伊利 安慕希希腊风味常温酸奶原味205g*16盒',
+                price: '89.99',
+                prePrice: '125.65',
+                remainNum: 19
+            },
+        ]
+    },
+    {
+        id:5,
+        time: '17:00',
+        status: '即将开抢',
+        data: [
+            {
+                img: 'http://m.ftsucai.com/demo/202102/appmb010/themes/img/pd/sf-18.jpg',
+                title: '【16盒装】伊利 安慕希希腊风味常温酸奶原味205g*16盒',
+                price: '89.99',
+                prePrice: '125.65',
+                remainNum: 19
+            },
+        ]
     }
 ]

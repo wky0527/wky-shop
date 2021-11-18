@@ -176,3 +176,23 @@
     width: 30%
   }
 }
+.sign-in-wrap {
+  margin-top: px2rem(100);
+  .sign-in-found {
+    .adm-nav-bar {
+      display: none;
+    }
+    .category-main {
+      margin-top: 0;
+    }
+  }
+  .sign-in-image {
+    height: px2rem(400);
+    background-color: $bg;
+    @include flex($justify-content: center);
+    img {
+      width: px2rem(200);
+      height: px2rem(200);
+    }
+  }
+}

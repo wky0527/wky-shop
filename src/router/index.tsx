@@ -5,6 +5,10 @@ const Cart = lazy(() => import('../views/Cart'))
 const Category = lazy(() => import('../views/Category'))
 const Found = lazy(() => import('../views/Found'))
 const My = lazy(() => import('../views/My'))
+const SignIn = lazy(()=> import('../views/Home/signIn'))
+const FlashSale = lazy(()=> import('../views/Home/flashSale'))
+const ShareCoupon = lazy(()=>import('../views/Home/coupon'))
+const Members = lazy(()=>import('../views/Home/members'))
 import { Loading } from 'antd-mobile'
 export const AppRoutes = () => {
     return (
@@ -16,6 +20,10 @@ export const AppRoutes = () => {
                    <Route exact path='/found' component={Found}></Route>
                    <Route exact path='/cart' component={Cart}></Route>
                    <Route exact path='/my' component={My}></Route>
+                   <Route exact path='/signIn' component={SignIn}></Route>
+                   <Route exact path='/flashSale' component={FlashSale}></Route>
+                   <Route exact path='/shareCoupon' component={ShareCoupon}></Route>
+                   <Route exact path='/members' component={Members}></Route>
                </Switch>
            </Suspense>
     )

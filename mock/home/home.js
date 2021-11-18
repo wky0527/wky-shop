@@ -616,7 +616,7 @@
 //     return res.json(data)
 // })
 // module.exports = router;
-import {homeAllData,navigationData} from "./index.js";
+import {homeAllData,navigationData} from "./index.ts";
 export default [
     {
         url: '/backend/home/all',
