@@ -24,14 +24,14 @@ const flashSale: FC = () => {
             <Header title='限时抢购' rightTitle={icon}/>
             <JumboTabs defaultActiveKey='1'>
                 {
-                    flashSale.map(item => {
+                    flashSale.map((item:any) => {
                         return (
                             <JumboTabs.Tab  className="TabPane" title={item['time']} key={item['id']}
                                            description={item['status']}>
                                 <List>
                                     <NoticeBar content='还有商品的哦！可以继续抢购的哦！' color='alert' closeable />
                                     {
-                                        item.data.map((items, index) => {
+                                        item.data.map((items:any, index:number) => {
                                             return (
                                                 <List.Item
                                                     key={index}
