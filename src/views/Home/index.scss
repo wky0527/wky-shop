@@ -196,3 +196,36 @@
     }
   }
 }
+.flash-sale-wrap {
+  margin-top: px2rem(106);
+  .adm-list-item-content-main {
+    position: relative;
+    .adm-list-item-description {
+      position: absolute;
+      top: px2rem(30);
+      left: 0;
+    }
+    .adm-list-item-title {
+      margin-top: px2rem(80);
+      font-size: $font-size-small;
+      @include multipleLine($width:px2rem(480));
+    }
+  }
+  .flash-sale-price {
+    color: #EB5211;
+    font-size: 14px;
+    margin-right: px2rem(10);
+  }
+  .flash-sale-prePrice {
+    text-decoration: line-through;
+  }
+  .adm-list-item-content-extra {
+    margin-top: px2rem(96);
+    position: absolute;
+    right: px2rem(54);
+    .flash-sale-remain {
+      color: $color-text-gray;
+      font-size: $font-size-small;
+    }
+  }
+}

@@ -4,10 +4,11 @@ interface navigationDefine {
 
 }
 export const homeAllData: any = {
-    swiper: ['http://www.ftsucai.com/demo/202102/appmb010/themes/img/banner/news-banner1.jpg',
-        'http://www.ftsucai.com/demo/202102/appmb010/themes/img/banner/news-banner2.jpg',
-        'http://www.ftsucai.com/demo/202102/appmb010/themes/img/banner/news-banner3.jpg',
-        'http://www.ftsucai.com/demo/202102/appmb010/themes/img/banner/news-banner1.jpg'
+    swiper: [
+        'https://img2.baidu.com/it/u=2640963809,3788285809&fm=26&fmt=auto',
+        'https://img0.baidu.com/it/u=1024107664,4260416053&fm=26&fmt=auto',
+        'https://img2.baidu.com/it/u=2640963809,3788285809&fm=26&fmt=auto',
+        'https://img0.baidu.com/it/u=1024107664,4260416053&fm=26&fmt=auto'
     ],
     data: [],
     entry: [
@@ -616,7 +617,7 @@ export const navigationData: any  = [
         activeIcon: 'f4.png'
     }
 ]
-export const flashSaleData = [
+export const flashSaleData:any = [
     {
         id:1,
         time: '00:00',
