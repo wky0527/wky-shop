@@ -9,7 +9,7 @@ const SignIn:FC = () => {
         <div className='sign-in-wrap'>
             <Header title='签到领豆' rightTitle={icon}/>
            <div className='sign-in-image'>
-               <img src="http://m.ftsucai.com/demo/202102/appmb010/themes/img/icon/icon-sign.png" alt=""/>
+               <img src="https://img0.baidu.com/it/u=4286852716,36948324&fm=26&fmt=auto" alt=""/>
            </div>
            <div className='sign-in-found'>
                <Found />

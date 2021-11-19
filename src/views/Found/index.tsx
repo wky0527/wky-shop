@@ -7,18 +7,17 @@ import {navList} from "./data";
 import List from './list';
 
 const Found: FC = () => {
-    const img = <img src="http://m.ftsucai.com/demo/202102/appmb010/themes/img/user/icon-dis.png" alt=""/>
     return (
         <>
-            <Header title={img}/>
+            <Header title='新品上市'/>
             <div className='category-main'>
                 <Tabs>
                     {
                         navList.map((item,index)=>{
                            return (
-                               <Tabs.TabPane title={item.name} key={item.id}>
+                               <Tabs.Tab title={item.name} key={item.id}>
                                    <List id={item.id}/>
-                               </Tabs.TabPane>
+                               </Tabs.Tab>
                            )
                         })
                     }
