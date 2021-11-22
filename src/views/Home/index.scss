@@ -189,9 +189,8 @@
   .sign-in-image {
     background-color: $bg;
     @include flex($justify-content: center);
-    img {
-      width: 100%;
-      height: 100%;
+    .adm-image {
+      margin: px2rem(40) 0;
     }
   }
 }
