@@ -187,7 +187,6 @@
     }
   }
   .sign-in-image {
-    height: px2rem(600);
     background-color: $bg;
     @include flex($justify-content: center);
     img {
@@ -198,6 +197,7 @@
 }
 .flash-sale-wrap {
   margin-top: px2rem(106);
+  background-color: $bg;
   .adm-list-item-content-main {
     position: relative;
     .adm-list-item-description {
@@ -229,3 +229,57 @@
     }
   }
 }
+.coupon-wrap {
+  .coupon-image {
+    margin-bottom: px2rem(120);
+  }
+  .coupon-wrap-footer {
+    @include flex($justify-content: space-between);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fdf0d2;
+    width: 100%;
+    height: 60px;
+    padding: 0 px2rem(80);
+  }
+}
+.members-wrap {
+  background-color: $bg;
+  .adm-tabs-content {
+    @include flex($justify-content: space-between)
+  }
+  .members-wrap-image {
+    width: 100%;
+    height: 100%;
+  }
+  .members-wrap-description {
+    @include multipleLine($line: 2, $width: px2rem(330));
+  }
+  .members-wrap-price {
+    @include flex;
+    width: px2rem(330);
+    p {
+      span {
+        color: #EB5211;
+        font-size: $font-size-small;
+        margin-right: px2rem(10);
+      }
+      span {
+        &:last-child {
+          color: $color-text-gray;
+          font-size: 12px;
+          text-decoration: line-through;
+        }
+      }
+    }
+    span {
+      color: $color-text-gray;
+    }
+  }
+  .header-mt {
+    margin-top: px2rem(110);
+  }
+}
+
+

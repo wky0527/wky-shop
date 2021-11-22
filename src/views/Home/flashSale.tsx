@@ -12,7 +12,6 @@ const flashSale: FC = () => {
 
     async function loadMore() {
         setFlashSale(flashSaleData);
-        console.log(flashSale)
         setHasMore(Object.keys(flashSaleData).length > 0)
     }
 
@@ -20,7 +19,7 @@ const flashSale: FC = () => {
         loadMore()
     }, [])
     return (
-        <div className='flash-sale-wrap'>
+        <div className='flash-sale-wrap header-mt'>
             <Header title='限时抢购' rightTitle={icon}/>
             <JumboTabs defaultActiveKey='1'>
                 {
