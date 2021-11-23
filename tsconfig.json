@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": ".",
     "target": "ESNext",//指定ECMAScript目标版本
     "lib": ["DOM", "DOM.Iterable", "ESNext"],//编译过程中需要引入的库文件的列表。
     "allowJs": true,//	允许编译javascript文件。
