@@ -11,7 +11,7 @@ export default defineConfig(({command})=>{
   let prodMock = true;
   console.log(command, command !== 'serve' && prodMock)
   return {
-    base: '/wky-shop/',
+    // base: '/wky-shop/',
     plugins: [
       reactRefresh(),
       viteMockServe({
