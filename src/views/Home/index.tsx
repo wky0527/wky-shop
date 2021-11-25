@@ -4,7 +4,7 @@ import {Swiper,Grid,InfiniteScroll,Search} from 'antd-mobile';
 import {navList, activeList, hotSaleList} from './data';
 import {Link} from "react-router-dom";
 import './index.scss';
-// import home from '../../api/home.js';
+import home from '../../api/home.js';
 import {homeAllData} from '../../../mock/home';
 import Icon from '../../components/Icon';
 const Home: FC = () => {
@@ -15,20 +15,20 @@ const Home: FC = () => {
     const [scrollColor,setScrollColor] = useState(false)
     async function loadMore() {
         // const {data}  = await home.all();
-        // await fetch('/backend/home/all').then(res=>{
-        //     return res.json()
-        // }).then(data=>{
-        //     const {swiper,entry,list} = data.data;
-        //     setSwiper(swiper);
-        //     setEntry(entry);
-        //     setList(list);
-        //     setHasMore(data.length > 0)
-        // })
-        const {swiper,entry,list} = homeAllData;
-        setSwiper(swiper)
-        setEntry(entry);
-        setList(list);
-        setHasMore(Object.keys(homeAllData).length > 0)
+        await fetch('http://localhost:3002/testGetApi').then(res=>{
+            return res.json()
+        }).then(data=>{
+            const {swiper,entry,list} = data.data;
+            setSwiper(swiper);
+            setEntry(entry);
+            setList(list);
+            setHasMore(data.length > 0)
+        })
+        // const {swiper,entry,list} = homeAllData;
+        // setSwiper(swiper)
+        // setEntry(entry);
+        // setList(list);
+        // setHasMore(Object.keys(homeAllData).length > 0)
     }
     window.onscroll = ()=>{
         if(document.documentElement.scrollTop > 0) {

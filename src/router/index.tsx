@@ -15,7 +15,6 @@ export const AppRoutes = () => {
         <Suspense fallback={<div><Loading color='primary'/><span>加载中</span></div>}>
                <Switch>
                    <Route exact path='/' component={Home}></Route>
-                   <Route exact path='/home' component={Home}></Route>
                    <Route exact path='/category' component={Category}></Route>
                    <Route exact path='/found' component={Found}></Route>
                    <Route exact path='/cart' component={Cart}></Route>

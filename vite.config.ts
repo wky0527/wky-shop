@@ -25,14 +25,14 @@ export default defineConfig(({command})=>{
       `,
       }),
     ],
-    // server: {
-    //   proxy: {
-    //     '/api': {
-    //       target: 'http://localhost:3002',
-    //       changeOrigin: true,
-    //     }
-    //   }
-    // },
+    server: {
+      proxy: {
+        '/api': {
+          target: 'http://localhost:3002',
+          changeOrigin: true,
+        }
+      }
+    },
     css: {
       preprocessorOptions: {
         scss: {

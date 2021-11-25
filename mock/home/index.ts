@@ -580,7 +580,7 @@ export const navigationData: any = [
     {
         id: 1,
         name: '首页',
-        path: '/home',
+        path: '/',
         exact: true,
         icon: 'f01.png',
         activeIcon: 'f1.png',

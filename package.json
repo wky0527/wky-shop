@@ -1,6 +1,6 @@
 {
   "version": "0.0.0",
-  "homepage": "./",
+  "homepage": "https://wky0527.github.io/wky-shop",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
