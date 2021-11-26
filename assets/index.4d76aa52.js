@@ -1,0 +1,1 @@
+import{R as e,i as m}from"./vendor.c9054506.js";import{I as d}from"./index.42c3a145.js";const f=({backTitle:a,backArrow:t,leftTitle:c,rightTitle:o,title:r,customBack:n})=>{const s=e.createElement(d,{type:"icon-62"}),i=()=>{history.back()};return e.createElement(m,{back:a,backArrow:t,left:c,right:o||s,onBack:n||i},r)};export{f as H};

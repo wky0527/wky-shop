@@ -1,0 +1,1 @@
+import{R as e}from"./vendor.c9054506.js";const t=document.createElement("script");t.src="//at.alicdn.com/t/font_2922939_obgldqj2z6q.js";document.body.appendChild(t);const r=({type:c})=>e.createElement("svg",{"aria-hidden":"true",className:"adm-icon"},e.createElement("use",{xlinkHref:`#${c}`}));export{r as I};
