@@ -1,10 +1,18 @@
-import React, {FC, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 import Header from "../../components/Header";
 import {Tabs, Image} from 'antd-mobile'
 import {getImageUrl} from "../../utils";
-import {membersData} from '../../../mock/home/index';
+import home from "../../api/home";
 import './index.scss';
 const Members: FC = () => {
+    const [membersData,setMembersData] = useState([]);
+    async function getMembersData(){
+        const {data:{data:{membersData}}} = await home.all();
+        setMembersData(membersData)
+    }
+    useEffect(()=>{
+        getMembersData()
+    },[])
     return (
         <div className='members-wrap'>
             <Header title='铂金会员'/>

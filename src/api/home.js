@@ -1,9 +1,6 @@
 import axios from "../utils/axios.js";
 const home = {}
     home.all = (params={})=>{
-        return axios.get(`/api/home/all`,{params})
-    }
-    home.navigate = () => {
-        return axios.get(`/api/home/navigation`)
+        return axios.get(`http://localhost:3002/backend/home/all`,{params})
     }
 export default home

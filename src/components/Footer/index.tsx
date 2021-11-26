@@ -1,26 +1,19 @@
 import React,{useState,useEffect,FC} from "react";
 import {NavLink} from 'react-router-dom';
-// import home from "../../api/home";
+import navigation from "../../api/navigation .js";
 import {getImageUrl} from '../../utils/index.js';
-import {navigationData} from "../../../mock/home";
 import './index.scss';
 const Footer:FC = () => {
     const [footerNav,setFooterNav] = useState([]);
     const [activeLink, setActiveLink] = useState();
     useEffect(()=>{
         const getFooterNav = async () => {
-            // try {
-            //     // const {data:{data}} = await home.navigate().then(r => r);
-            //     await fetch('/backend/home/navigation').then(res=>{
-            //         return res.json();
-            //     }).then(data=>{
-            //         console.log(data)
-            //         setFooterNav(data.data)
-            //     })
-            // }catch (err){
-            //     console.log(err)
-            // }
-            setFooterNav(navigationData)
+            try {
+                const {data:{data}} = await navigation.navigate();
+                setFooterNav(data.navigation)
+            }catch (err){
+                console.log(err)
+            }
         }
         getFooterNav()
     },[])

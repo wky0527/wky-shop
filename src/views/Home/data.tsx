@@ -10,11 +10,12 @@ export const activeList = [{
     bigTitle: "有好货",
     titleIntroduce: "与品质生活不期而遇",
     titleImg: "https://img.alicdn.com/tfs/TB1tqpnegMPMeJjy1XcXXXpppXa-148-48.png",
-    list: [{
+    list: [
+        {
         smallTitle: "可折叠加厚双面使用榻榻米床垫",
         introduce: "可以折叠的榻榻米床垫，收纳不占空间，正反两面都可以使用，同时纯棉材质舒适亲肤，透气性好，保持贴身换将干爽 不粘腻。",
         img: "https://img.alicdn.com/imgextra/i3/1914575403/TB2Y1CoqQ9WBuNjSspeXXaz5VXa_!!1914575403-0-beehive-scenes.jpg_180x180xzq90.jpg_.webp"
-    },
+        },
         {
             smallTitle: "Puma Defy 赛琳娜限定",
             introduce: "设计上继续主打高街风格的科幻元素。",
@@ -39,9 +40,9 @@ export const activeList = [{
             smallTitle: "办公室午睡神器",
             introduce: "专为午睡设计，使用起来方便舒适。",
             img: "https://img.alicdn.com/imgextra/i1/810373898/O1CN01alx0rm1efKNHkAk07_!!810373898-0-beehive-scenes.jpg_180x180xzq90.jpg_.webp"
-        }
-    ]
-},
+         }
+      ]
+     },
     {
         bigTitle: "爱逛街",
         titleIntroduce: "献给聪明可爱的你",

@@ -2,19 +2,18 @@ import React, {FC, useEffect, useState} from "react";
 import Header from "../../components/Header";
 import {SearchOutline} from "antd-mobile-icons";
 import {InfiniteScroll, JumboTabs, List,Image,NoticeBar} from "antd-mobile";
-import {flashSaleData} from '../../../mock/home/index';
 import './index.scss';
-
+import home from "../../api/home";
 const flashSale: FC = () => {
     const icon = <SearchOutline/>
     const [hasMore, setHasMore] = useState(true);
     const [flashSale, setFlashSale] = useState([]);
 
     async function loadMore() {
+        const {data:{data:{flashSaleData}}} = await home.all();
         setFlashSale(flashSaleData);
-        setHasMore(Object.keys(flashSaleData).length > 0)
+        // setHasMore(data.length > 0)
     }
-
     useEffect(() => {
         loadMore()
     }, [])
@@ -55,7 +54,7 @@ const flashSale: FC = () => {
                     })
                 }
             </JumboTabs>
-            <InfiniteScroll loadMore={loadMore} hasMore={hasMore}/>
+            {/*<InfiniteScroll loadMore={loadMore} hasMore={hasMore}/>*/}
         </div>
     )
 }

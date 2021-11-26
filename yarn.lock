@@ -1730,6 +1730,11 @@ minimist@^1.2.5:
   resolved "https://registry.npm.taobao.org/minimist/download/minimist-1.2.5.tgz?cache=0&sync_timestamp=1602337228360&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fminimist%2Fdownload%2Fminimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha1-Z9ZgFLZqaoqqDAg8X9WN9OTpdgI=
 
+mock@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.nlark.com/mock/download/mock-0.1.1.tgz#e7e3589c7e6b3376d69f5a3e470b56604417c633"
+  integrity sha1-5+NYnH5rM3bWn1o+RwtWYEQXxjM=
+
 mockjs@^1.1.0:
   version "1.1.0"
   resolved "https://registry.npm.taobao.org/mockjs/download/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
