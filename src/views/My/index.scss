@@ -1,45 +1,187 @@
-.my-list-wrap {
-  margin-top: px2rem(70);
-  height: px2rem(300);
-  .my-header {
-    background: url("../../assets/images/bg.jpg") no-repeat center center;
-    height: 100%;
-    @include flex($justify-content: center);
-    dl {
-      @include flex($justify-content: center);
-      dt {
+.my-wrap {
+  .adm-nav-bar {
+    background: linear-gradient(to right,#ff5e3e 0,#ff1679 100%);
+    border-bottom: none;
+  }
+  .my-list-wrap {
+    margin-top: px2rem(70);
+    height: px2rem(300);
+    .my-header {
+      .adm-card {
+        background: linear-gradient(to right,#ff5e3e 0,#ff1679 100%);
+        dl {
+          @include flex;
+          margin-top: px2rem(36);
+          background: $bg;
+          padding: px2rem(20);
+          dt {
+            margin-right: px2rem(20);
+          }
+          dd {
+            h3 {
+              text-indent: px2rem(20);
+              font-size: $font-size-middle;
+            }
+            ul {
+              @include flex;
+              li {
+                padding: 0 px2rem(20);
+                text-align: center;
+                font-size: $font-size-small;
+                span {
+                  color: #666666;
+                  font-weight: 600;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .my-order {
+      .adm-list-item-content-extra, .adm-list-item-content-main{
+        font-size: $font-size-small;
+      }
+      .adm-list-item-content-extra {
+        color: $color-text-gray;
+      }
+    }
+    .my-order-detail {
+      @include flex($justify-content: space-between);
+      padding: px2rem(20) px2rem(30);
+      background-color: $bg;
+      box-sizing: border-box;
+      margin-bottom: px2rem(20);
+      a {
+        @include flex($direction: column);
+        color: $color-text-gray;
+        span {
+          padding-top: px2rem(10);
+        }
+        img {
+          width: px2rem(40);
+          width: px2rem(40);
+        }
+      }
+    }
+    .adm-list-item-content-main {
+      font-size: $font-size-small;
+    }
+    .my-recommended {
+      .category-list{
+        background: $bg;
+        width: 100%;
+
+        .title {
+          padding: px2rem(20) 0;
+          @include flex($justify-content: space-between);
+
+          .left-line, .right-line {
+            background: linear-gradient(270deg, #c2c2c2 0%, #ffffff 100%);
+            width: px2rem(280);
+            height: 1px;
+            display: block;
+          }
+
+          .right-line {
+            background: linear-gradient(-270deg, #c2c2c2 0%, #ffffff 100%);
+          }
+
+          .center-title {
+            font-size: $font-size-small;
+            color: $color-content;
+          }
+        }
+
+        .content {
+          @include flex($justify-content: space-between, $wrap: wrap);
+          padding: 0 px2rem(12);
+          box-sizing: border-box;
+          padding-bottom: px2rem(8);
+
+          dl {
+            dt {
+              width: px2rem(230);
+              height: px2rem(230);
+
+              img {
+                width: 100%;
+                height: 100%;
+                display: block;
+              }
+            }
+
+            dd {
+              padding: px2rem(10) 0;
+
+              p {
+                @include multipleLine($line: 3, $width: px2rem(220));
+
+                &:last-child {
+                  @include flex($justify-content: space-between);
+
+                  span {
+                    &:first-child {
+                      color: #FF4400;
+                    }
+
+                    &:last-child {
+                      color: #999;
+                      text-decoration: line-through
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .content::after {
+          content: '';
+          width: 33%;
+        }
+      }
+    }
+  }
+  .antd-mobile-icon {
+    font-size: px2rem(40);
+  }
+}
+.my-order-wrap {
+  .adm-card {
+    margin-bottom: px2rem(20);
+    .adm-list-default {
+      border-top: none;
+    }
+    .adm-card-header-title {
+      font-size: $font-size-small;
+      font-weight: 400;
+    }
+    .adm-list-item-description {
+      p {
+        color: #505050;
+        @include multipleLine($line:2);
+      }
+      .my-order-description {
+        @include flex($justify-content: space-between);
+        .my-order-price {
+          font-size: $font-size-middle;
+          color: #EB5211;
+          margin-right: px2rem(20);
+        }
+        .my-order-prePrice {
+          font-size: $font-size-small;
+          color: #8C8C8C;
+          text-decoration: line-through;
+        }
+      }
+    }
+    .my-order-footer {
+      padding-top: px2rem(28);
+      text-align: right;
+      button {
         margin-right: px2rem(20);
       }
     }
   }
-  .my-order {
-    .adm-list-item-content-extra, .adm-list-item-content-main{
-      font-size: $font-size-small;
-    }
-    .adm-list-item-content-extra {
-      color: $color-text-gray;
-    }
-  }
-  .my-order-detail {
-    @include flex($justify-content: space-between);
-    padding: px2rem(20) px2rem(30);
-    background-color: $bg;
-    box-sizing: border-box;
-    margin-bottom: px2rem(20);
-    a {
-      @include flex($direction: column);
-      color: $color-text-gray;
-      span {
-        padding-top: px2rem(10);
-      }
-      img {
-        width: px2rem(40);
-        width: px2rem(40);
-      }
-    }
-  }
-  .adm-list-item-content-main {
-    font-size: $font-size-small;
-  }
 }
-

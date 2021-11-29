@@ -11,4 +11,9 @@
     font-size: px2rem(32);
     color: $font-size-middle;
   }
+  .adm-nav-bar-right {
+    svg {
+      font-size: px2rem(40);
+    }
+  }
 }

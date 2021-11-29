@@ -1,73 +1,137 @@
-import React, {FC} from "react";
-import {Image, List} from 'antd-mobile';
+import React, {FC, useState} from "react";
+import {Card, List,Image,Divider} from 'antd-mobile';
 import {UnorderedListOutline,PayCircleOutline,SetOutline} from 'antd-mobile-icons'
+import Icon from "../../components/Icon";
+import FoundList from '../Found/list';
+import {useHistory} from 'react-router-dom';
 import './index.scss';
 
 const MyList: FC = () => {
-    const getImageUrl = (icon:string) => {
-        return new URL(`../../assets/images/${icon}`, import.meta.url).href
-    }
+    const history = useHistory();
+    const demoSrc = 'https://images.unsplash.com/photo-1567945716310-4745a6b7844b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=60';
+    const headerList= [
+        {
+            num: 98,
+            title: '收藏'
+        },
+        {
+            num: 78,
+            title: '关注'
+        },
+        {
+            num: 99,
+            title: '足迹'
+        },
+        {
+            num: 65,
+            title: '分享'
+        }
+    ]
+    const orderList = [
+        {
+            icon: 'icon-daifukuan',
+            title: '待付款'
+        },
+        {
+            icon: 'icon-31daifahuo',
+            title: '待发货'
+        },
+        {
+            icon: 'icon-daishouhuo',
+            title: '待收货'
+        },
+        {
+            icon: 'icon-daipingjia01',
+            title: '待评价'
+        },
+        {
+            icon: 'icon-tuihuotuikuan',
+            title:'退款/售后'
+        }
+    ]
     return (
         <div className='my-list-wrap'>
             <div className="my-header">
-                <dl>
-                    <dt>
-                        <Image
-                            src='https://img1.baidu.com/it/u=3840315013,3995777941&fm=26&fmt=auto'
-                            width={64}
-                            height={64}
-                            fit='cover'
-                            style={{borderRadius: 32}}
-                        />
-                    </dt>
-                    <dd>
-                        <h3>可可</h3>
-                        <p>成年人的崩溃往往就在一瞬间</p>
-                    </dd>
-                </dl>
+                <Card>
+                    <dl>
+                        <dt>
+                            <Image
+                                src={demoSrc}
+                                width={64}
+                                height={64}
+                                fit='cover'
+                                style={{ borderRadius: 4 }}
+                            />
+                        </dt>
+                        <dd>
+                            <h3>文章同学</h3>
+                             <div>
+                                 <ul>
+                                     {
+                                         headerList.map((item,index)=>{
+                                             return (
+                                                 <li key={index}>
+                                                     <span>{item.num}</span>
+                                                     <p>{item.title}</p>
+                                                 </li>
+                                             )
+                                         })
+                                     }
+                                 </ul>
+                             </div>
+                        </dd>
+                    </dl>
+                </Card>
             </div>
             <div className="my-order">
                 <List>
                     <List.Item
                         extra='查看全部订单'
                         onClick={() => {
+                            history.push('/myOrder')
                         }}
                     >
                         我的订单
                     </List.Item>
                 </List>
                 <div className="my-order-detail">
-                    <a href="#">
-                        <img src={getImageUrl('substitutePay.jpg')} alt=""/>
-                        <span>代付款</span>
-                    </a>
-                    <a href="#">
-                        <img src={getImageUrl('collectGoods.jpg')}  alt=""/>
-                        <span>待收货</span>
-                    </a>
-                    <a href="#">
-                        <img src={getImageUrl('generationEvaluation.jpg')} alt=""/>
-                        <span>待评价</span>
-                    </a>
-                    <a href="#">
-                        <img src={getImageUrl('refund.jpg')} alt=""/>
-                        <span>退款/售后</span>
-                    </a>
+                    {
+                        orderList.map((item,index)=>{
+                            return (
+                                <a href="#" key={index}>
+                                    <Icon type={item.icon}/>
+                                    <span>{item.title}</span>
+                                </a>
+                            )
+                        })
+                    }
                 </div>
             </div>
-            <div className="my-content">
-                <List>
-                    <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>
-                        账单
-                    </List.Item>
-                    <List.Item prefix={<PayCircleOutline />} onClick={() => {}}>
-                        总资产
-                    </List.Item>
-                    <List.Item prefix={<SetOutline />} onClick={() => {}}>
-                        设置
-                    </List.Item>
-                </List>
+            <div className='my-recommended'>
+                <Divider
+                    style={{
+                        color: '#ff5e3e',
+                        borderColor: '#ff1679',
+                        borderStyle: 'dashed',
+                    }}
+                >
+                    为你推荐
+                </Divider>
+                <FoundList id={1}/>
             </div>
+            {/*<div className="my-content">*/}
+            {/*    <List>*/}
+            {/*        <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>*/}
+            {/*            账单*/}
+            {/*        </List.Item>*/}
+            {/*        <List.Item prefix={<PayCircleOutline />} onClick={() => {}}>*/}
+            {/*            总资产*/}
+            {/*        </List.Item>*/}
+            {/*        <List.Item prefix={<SetOutline />} onClick={() => {}}>*/}
+            {/*            设置*/}
+            {/*        </List.Item>*/}
+            {/*    </List>*/}
+            {/*</div>*/}
         </div>
     )
 }

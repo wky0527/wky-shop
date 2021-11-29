@@ -6,6 +6,7 @@ import {getImageUrl} from '../../utils/index.js';
 import './index.scss';
 const icon = <Icon type='icon-zhuanfa'/>
 const shareCoupon: FC = () => {
+
     return (
         <>
             <Header title='邀请好友，我得奖' rightTitle={icon}/>
