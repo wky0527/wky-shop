@@ -1,6 +1,5 @@
 import React, {FC, useState} from "react";
 import {Card, List,Image,Divider} from 'antd-mobile';
-import {UnorderedListOutline,PayCircleOutline,SetOutline} from 'antd-mobile-icons'
 import Icon from "../../components/Icon";
 import FoundList from '../Found/list';
 import {useHistory} from 'react-router-dom';
@@ -98,10 +97,10 @@ const MyList: FC = () => {
                     {
                         orderList.map((item,index)=>{
                             return (
-                                <a href="#" key={index}>
+                                <div className="my-order-entry" onClick={()=>{history.push('/myOrder')}} key={index}>
                                     <Icon type={item.icon}/>
                                     <span>{item.title}</span>
-                                </a>
+                                </div>
                             )
                         })
                     }
@@ -119,19 +118,6 @@ const MyList: FC = () => {
                 </Divider>
                 <FoundList id={1}/>
             </div>
-            {/*<div className="my-content">*/}
-            {/*    <List>*/}
-            {/*        <List.Item prefix={<UnorderedListOutline />} onClick={() => {}}>*/}
-            {/*            账单*/}
-            {/*        </List.Item>*/}
-            {/*        <List.Item prefix={<PayCircleOutline />} onClick={() => {}}>*/}
-            {/*            总资产*/}
-            {/*        </List.Item>*/}
-            {/*        <List.Item prefix={<SetOutline />} onClick={() => {}}>*/}
-            {/*            设置*/}
-            {/*        </List.Item>*/}
-            {/*    </List>*/}
-            {/*</div>*/}
         </div>
     )
 }

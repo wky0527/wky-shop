@@ -52,7 +52,7 @@
       background-color: $bg;
       box-sizing: border-box;
       margin-bottom: px2rem(20);
-      a {
+      .my-order-entry {
         @include flex($direction: column);
         color: $color-text-gray;
         span {
@@ -148,6 +148,9 @@
   }
 }
 .my-order-wrap {
+  .adm-tabs-tab {
+    font-size: 16px;
+  }
   .adm-card {
     margin-bottom: px2rem(20);
     .adm-list-default {
@@ -182,6 +185,17 @@
       button {
         margin-right: px2rem(20);
       }
+    }
+  }
+}
+.setting-wrap {
+  .setting-exit-button{
+    width: 90%;
+    margin: px2rem(30) auto auto auto;
+    button {
+      width: 100%;
+      border: 1px solid $color-primary;
+      color: $color-primary;
     }
   }
 }

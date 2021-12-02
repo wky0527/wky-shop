@@ -9,6 +9,8 @@ $btn-color-blue: #409eff;
 $bg: #fff;
 $color-content: #333;
 $color-bottom-border: #eeeeee;
+//主色调
+$color-primary: #FF5E53;
 //大标题
 @mixin title($font-size: $font-size-middle,$font-weight: 500,$color: $color-text-black,$height: null) {
     font-size: $font-size;
@@ -64,4 +66,10 @@ $color-bottom-border: #eeeeee;
 .header-mt {
     margin-top: 55px;
 }
-
+//多号省略号
+.multipleLine{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}

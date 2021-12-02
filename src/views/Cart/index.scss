@@ -1,77 +1,55 @@
 .cart-list-wrap {
-  margin-top: px2rem(100);
   margin-bottom: px2rem(260);
   .cart-list {
+    .cart-title-edit {
+      @include flex($justify-content: space-between);
+      margin-bottom: px2rem(20);
+      span {
+        font-size: $font-size-small;
+        color: $color-text-black;
+      }
+    }
     .adm-list-inner {
       padding: px2rem(26);
-
-      .cart-price {
-        b {
-          margin-left: px2rem(10);
-        }
+      .adm-checkbox-icon {
+        width: px2rem(38);
+        height: px2rem(38);
       }
-
       .adm-checkbox-content {
         font-weight: 600;
-        margin-right: px2rem(10);
+        margin-right: px2rem(15);
 
         svg {
           color: #AAAAAA;
-        }
-      }
-
-      .active-title {
-        padding: px2rem(20) 0;
-        margin-left: px2rem(60);
-        padding-bottom: px2rem(40);
-
-        span {
-          font-size: 14px;
-
-          &:first-child {
-            margin-right: px2rem(10);
-            font-size: 12px;
-          }
-
-          &:last-child {
-            float: right;
-            color: #ff6430;
-            margin-top: px2rem(6);
-          }
         }
       }
     }
 
     dl {
       @include flex($justify-content: space-around);
-      margin-left: px2rem(-46);
-
       dt {
-        width: px2rem(250);
-        height: px2rem(250);
-        @include flex;
-
-        .adm-checkbox-icon {
-          margin-right: px2rem(10);
+        //width: px2rem(200);
+        //height: px2rem(200);
+        position: relative;
+        .adm-checkbox {
+          position: absolute;
+          top: px2rem(54);
+          left: 0;
         }
-
         img {
-          width: 100%;
-          height: 100%;
-          display: block;
-          border-radius: px2rem(30);
+          //width: 100%;
+          //height: 100%;
+          //display: block;
+          margin-left: px2rem(18);
         }
       }
 
       dd {
-        p {
+        span {
           font-size: $font-size-small;
-          font-weight: 600;
-          height: px2rem(66);
-
           &:last-child {
             @include flex($justify-content: space-between);
-
+            padding: 0 px2rem(20);
             b {
               color: #FF5A27;
               font-size: 20px;
@@ -85,12 +63,22 @@
               display: inline-block;
               border-radius: px2rem(8);
               font-weight: 400;
+              padding: 0;
             }
           }
         }
-
-        .adm-tag {
-          font-size: 12px;
+        .cart-title-word {
+          font-weight: 600;
+          width: px2rem(500);
+          margin-top: px2rem(-5);
+        }
+        .cart-description {
+          color: $color-text-gray;
+          margin-left: px2rem(14);
+          b {
+            margin-right: px2rem(20);
+            font-weight: 400;
+          }
         }
       }
     }
